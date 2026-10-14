@@ -85,7 +85,7 @@ h1,h2,h3,p,figure{margin:0}
 .hero-content{position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(36px,7vh,80px);z-index:2}
 .hero h1{color:var(--ivory);margin-bottom:28px}
 .blinds{position:absolute;inset:0;z-index:3;pointer-events:none;transform-style:preserve-3d}
-.blind{position:absolute;top:0;height:100%;background:var(--walnut);transform-origin:left center;transform:rotateY(-90deg)}
+.blind{position:absolute;top:0;height:100%;background:var(--walnut);transform-origin:left center;transform:rotateY(-90deg);opacity:0;backface-visibility:hidden}
 
 .radius{position:relative;z-index:2;background:var(--ivory);margin-top:-12vh;border-radius:0;overflow:hidden;padding:clamp(70px,9vw,120px) 0 clamp(90px,10vw,140px)}
 .radius-bg{position:absolute;inset:0;background:url(archbg.jpg) center top/cover;opacity:.22;filter:sepia(.25) saturate(.8);pointer-events:none}
@@ -659,8 +659,8 @@ else {
   const w = heroEl.clientWidth / count;
   for (let k = 0; k < count; k++) { const s = document.createElement('div'); s.className = 'blind'; s.style.left = (k * w - .5) + 'px'; s.style.width = (w + 1) + 'px'; blinds.appendChild(s); }
   const mm = gsap.matchMedia();
-  mm.add('(min-width: 1025px)', function(){ const t = gsap.to('.blind', { rotationY:0, stagger:.005, ease:'power3.out', scrollTrigger:{ trigger:heroEl, start:'top+=10% top', end:'+=125%', scrub:true } }); return function(){ t.kill(); }; });
-  mm.add('(max-width: 1024px)', function(){ const t = gsap.to('.blind', { rotationY:0, stagger:.005, ease:'power3.out', scrollTrigger:{ trigger:heroEl, start:'top top', end:'+=100%', scrub:true } }); return function(){ t.kill(); }; });
+  mm.add('(min-width: 1025px)', function(){ const t = gsap.to('.blind', { rotationY:0, opacity:1, stagger:.005, ease:'power3.out', scrollTrigger:{ trigger:heroEl, start:'top+=10% top', end:'+=125%', scrub:true } }); return function(){ t.kill(); }; });
+  mm.add('(max-width: 1024px)', function(){ const t = gsap.to('.blind', { rotationY:0, opacity:1, stagger:.005, ease:'power3.out', scrollTrigger:{ trigger:heroEl, start:'top top', end:'+=100%', scrub:true } }); return function(){ t.kill(); }; });
 
   /* Arco */
   const radius = document.querySelector('.radius');
