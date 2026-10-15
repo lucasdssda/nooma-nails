@@ -189,6 +189,47 @@ h1,h2,h3,p,figure{margin:0}
 .gallery-pin.static .gp{position:relative;left:auto!important;width:100%;transform:none!important}
 .gallery-pin.static .gp5{display:none}
 
+/* Instagram estático + avaliações */
+.social{padding:clamp(90px,11vw,140px) 0;background:var(--paper)}
+.soc-head,.rv-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:32px}
+.soc-head .pill .ico{width:18px;height:18px}
+.ig-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ig-item{position:relative;display:block;aspect-ratio:1/1;border-radius:18px;overflow:hidden;background:var(--sand)}
+.ig-item img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.ig-ov{position:absolute;inset:0;display:grid;place-items:center;background:rgba(64,51,41,.38);color:var(--ivory);opacity:0;transition:opacity .35s}
+.ig-ov .ico{width:34px;height:34px}
+.ig-item:hover img{transform:scale(1.06)}
+.ig-item:hover .ig-ov{opacity:1}
+.reviews{margin-top:clamp(80px,9vw,120px)}
+.rv-summary{display:grid;justify-items:end;gap:8px;text-align:right}
+.rv-score{display:flex;align-items:center;gap:12px}
+.rv-score b{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,4vw,3.6rem);line-height:1;color:var(--walnut)}
+.rv-stars{display:inline-flex;gap:2px;color:#C99A3E}
+.rv-stars svg{width:20px;height:20px}
+.rv-count{font-size:.9rem;color:var(--mocha)}
+.rv-track{display:grid;align-items:start;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px)/3);gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:6px 2px 18px;scrollbar-width:none}
+.rv-track::-webkit-scrollbar{display:none}
+.rv-card{scroll-snap-align:start;display:flex;flex-direction:column;gap:16px;min-width:0;background:var(--ivory);border:1px solid var(--line);border-radius:24px;padding:28px 28px 26px;position:relative;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
+.rv-card:hover{transform:translateY(-6px);box-shadow:0 28px 50px -30px rgba(64,51,41,.45)}
+.rv-card::after{content:"\201D";position:absolute;right:24px;top:6px;font-family:var(--display);font-size:6rem;line-height:1;color:var(--sand);pointer-events:none}
+.rv-top{display:flex;align-items:center;gap:14px}
+.rv-av{width:48px;height:48px;border-radius:50%;flex:none;display:grid;place-items:center;font-family:var(--display);font-size:1.3rem;color:var(--ivory);background:var(--walnut);overflow:hidden}
+.rv-av img{width:100%;height:100%;object-fit:cover}
+.rv-name{display:flex;align-items:center;gap:6px;font-weight:600;color:var(--mocha);font-size:1rem;line-height:1.2}
+.rv-name .ok{width:16px;height:16px;color:#4A7FD6}
+.rv-meta{font-size:.82rem;color:var(--taupe);margin-top:2px}
+.rv-meta b{font-weight:600;color:var(--walnut)}
+.rv-text{font-family:var(--display);font-size:1.12rem;line-height:1.5;color:var(--mocha);display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
+.rv-card.open .rv-text{-webkit-line-clamp:unset;display:block}
+.rv-more{align-self:flex-start;background:none;border:0;padding:0;font:600 .85rem var(--sans);color:var(--walnut);cursor:pointer;border-bottom:1px solid var(--line)}
+.rv-photo{border-radius:16px;overflow:hidden;aspect-ratio:4/3}
+.rv-photo img{width:100%;height:100%;object-fit:cover}
+.rv-tag{position:absolute;top:18px;right:20px;z-index:1;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--sand);color:var(--mocha)}
+.rv-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:18px}
+.rv-note{font-size:.82rem;color:var(--taupe);max-width:60ch}
+@media (max-width:1024px){ .rv-track{grid-auto-columns:calc((100% - 24px)/2)} }
+@media (max-width:767px){ .ig-grid{grid-template-columns:repeat(2,minmax(0,1fr))} .rv-track{grid-auto-columns:86%} .rv-summary{justify-items:start;text-align:left} }
+
 /* Cards subindo (no lugar dos depoimentos) */
 .cards-sec{position:relative;height:100vh;height:100svh;min-height:620px;overflow:hidden}
 .cards-sec .big-bg{width:min(56vw,640px);left:62%}
@@ -392,20 +433,6 @@ h1,h2,h3,p,figure{margin:0}
     </div>
   </section>
 
-  <section class="scroll-sec" id="detalhes">
-    <div class="big-bg" id="bigBg1" aria-hidden="true"><svg viewBox="0 0 200 200"><use href="#mono"/></svg></div>
-    <div class="scroll-text">
-      <svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
-      <h2 class="disp d-xl split">Cada detalhe,<br>um prazer.</h2>
-      <p class="txt lines">Entre na Nooma e sinta o cuidado em cada etapa. O espaço foi pensado para silenciar a correria e oferecer um momento para você pausar, relaxar e se sentir à vontade.</p>
-    </div>
-    <div class="mv-grid">
-      <figure class="mv a1"><img src="f1.jpg" alt="Unhas nude sobre tecido felpudo" loading="lazy"></figure>
-      <figure class="mv a2"><img src="f2.jpg" alt="Unhas nude com flores ao fundo" loading="lazy"></figure>
-      <figure class="mv a3"><img src="f3.jpg" alt="Unhas rosadas com tecido branco" loading="lazy"></figure>
-      <figure class="mv a4"><img src="f4.jpg" alt="Mão com anel e unhas claras" loading="lazy"></figure>
-    </div>
-  </section>
 
   <section class="escape" id="horarios">
     <div class="wrap escape-grid">
@@ -425,18 +452,40 @@ h1,h2,h3,p,figure{margin:0}
     </div>
   </section>
 
-  <section class="gallery-pin" id="galeria">
-    <div class="big-bg" id="bigBg2" aria-hidden="true"><svg viewBox="0 0 200 200"><use href="#mono"/></svg></div>
-    <div class="gp-title">
-      <h2 class="disp d-xl split">Brilhe<br>com a gente</h2>
-      <a class="gp-handle" href="https://www.instagram.com/noomanails/" target="_blank" rel="noopener">@NOOMANAILS</a>
-    </div>
-    <div class="gp-grid">
-      <a class="gp gp1" href="https://www.instagram.com/noomanails/" target="_blank" rel="noopener"><img src="g1.jpg" alt="Unhas com suéter e plantas" loading="lazy"><span class="ig"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg></span></a>
-      <a class="gp gp2" href="https://www.instagram.com/noomanails/" target="_blank" rel="noopener"><img src="g2.jpg" alt="Unhas vermelhas" loading="lazy"><span class="ig"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg></span></a>
-      <a class="gp gp3" href="https://www.instagram.com/noomanails/" target="_blank" rel="noopener"><img src="g3.jpg" alt="Francesinha segurando caneca" loading="lazy"><span class="ig"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg></span></a>
-      <a class="gp gp4" href="https://www.instagram.com/noomanails/" target="_blank" rel="noopener"><img src="g4.jpg" alt="Unhas douradas" loading="lazy"><span class="ig"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg></span></a>
-      <a class="gp gp5" href="https://www.instagram.com/noomanails/" target="_blank" rel="noopener"><img src="g5.jpg" alt="Francesinha com flor" loading="lazy"><span class="ig"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg></span></a>
+  <section class="social" id="galeria">
+    <div class="wrap">
+      <div class="soc-head">
+        <div>
+          <p class="sub fade">Siga no Instagram</p>
+          <h2 class="disp d-xl split">Brilhe com a gente</h2>
+        </div>
+        <a class="pill fade" href="https://www.instagram.com/noomanails/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg> @noomanails</a>
+      </div>
+      <div class="ig-grid">
+        <a class="ig-item seq" href="https://www.instagram.com/noomanails/" target="_blank" rel="noopener"><img src="g1.jpg" alt="Unhas com suéter e plantas" loading="lazy"><span class="ig-ov"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg></span></a>
+        <a class="ig-item seq" href="https://www.instagram.com/noomanails/" target="_blank" rel="noopener"><img src="g2.jpg" alt="Unhas vermelhas" loading="lazy"><span class="ig-ov"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg></span></a>
+        <a class="ig-item seq" href="https://www.instagram.com/noomanails/" target="_blank" rel="noopener"><img src="g3.jpg" alt="Francesinha segurando caneca" loading="lazy"><span class="ig-ov"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg></span></a>
+        <a class="ig-item seq" href="https://www.instagram.com/noomanails/" target="_blank" rel="noopener"><img src="g4.jpg" alt="Unhas douradas" loading="lazy"><span class="ig-ov"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6" fill="currentColor"/></svg></span></a>
+      </div>
+
+      <div class="reviews" id="avaliacoes">
+        <div class="rv-head">
+          <div>
+            <p class="sub fade">Avaliações no Google</p>
+            <h2 class="disp d-lg split">O que dizem<br>da Nooma</h2>
+          </div>
+          <div class="rv-summary fade">
+            <div class="rv-score"><b id="rvAvg">5,0</b><span class="rv-stars" id="rvAvgStars"></span></div>
+            <p class="rv-count" id="rvCount"></p>
+            <a class="pill" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Ministro%20Gabriel%20de%20Rezende%20Passos%2C%20500%20-%20Moema%2C%20S%C3%A3o%20Paulo%20-%20SP" target="_blank" rel="noopener">Avaliar no Google</a>
+          </div>
+        </div>
+        <div class="rv-track" id="rvTrack" tabindex="0" aria-label="Avaliações de clientes"></div>
+        <div class="rv-foot">
+          <p class="rv-note" id="rvNote"></p>
+          <div class="car-arrows"><button class="circle-btn" id="rvPrev" type="button" aria-label="Avaliação anterior"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button class="circle-btn" id="rvNext" type="button" aria-label="Próxima avaliação"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -604,11 +653,51 @@ fData.addEventListener('change', function(){ fillHoras(); buildMsg(); });
 document.getElementById('bookForm').addEventListener('submit', function(e){ e.preventDefault(); });
 buildMsg();
 
+
+/* ===== AVALIAÇÕES DO GOOGLE — cole aqui as avaliações reais (copie do perfil da Nooma no Google) =====
+   Campos: nome, quando (ex.: 'há 2 meses'), nota (1 a 5), texto, foto (opcional, ex.: 'g1.jpg'), avatar (opcional) e exemplo:true para cards de modelo. */
+const AVALIACOES = [
+  { nome:'Nome da cliente', quando:'há 1 semana', nota:5, exemplo:true, texto:'Aqui entra uma avaliação real do Google. Copie o texto que a cliente escreveu no perfil da Nooma Nails, junto com o nome e a data, e cole neste lugar.' },
+  { nome:'Nome da cliente', quando:'há 2 semanas', nota:5, exemplo:true, texto:'Avaliações com foto chamam mais atenção: se a cliente postou foto das unhas no Google, adicione o arquivo na pasta media e informe no campo foto.', foto:'g5.jpg' },
+  { nome:'Nome da cliente', quando:'há 1 mês', nota:5, exemplo:true, texto:'Espaço para a terceira avaliação. Prefira textos que falem do atendimento, do acabamento e da durabilidade do esmalte.' },
+  { nome:'Nome da cliente', quando:'há 1 mês', nota:5, exemplo:true, texto:'Espaço para a quarta avaliação. O carrossel aceita quantas avaliações você quiser.' }
+];
+(function(){
+  const STAR = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg>';
+  const OK = '<svg class="ok" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 1.8 3-.1.9 2.8 2.5 1.7-1 2.8 1 2.8-2.5 1.7-.9 2.8-3-.1L12 22l-2.4-1.8-3 .1-.9-2.8-2.5-1.7 1-2.8-1-2.8 2.5-1.7.9-2.8 3 .1z"/><path d="M8.5 12.2l2.3 2.3 4.7-4.8" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const cores = ['#725B48','#A99A89','#403329','#8C735E'];
+  const track = document.getElementById('rvTrack');
+  const esc = function(t){ const d = document.createElement('div'); d.textContent = t; return d.innerHTML; };
+  AVALIACOES.forEach(function(r, i){
+    const card = document.createElement('article'); card.className = 'rv-card';
+    const av = r.avatar ? '<img src="' + esc(r.avatar) + '" alt="">' : esc((r.nome || '?').trim().charAt(0).toUpperCase());
+    card.innerHTML = (r.exemplo ? '<span class="rv-tag">Modelo</span>' : '') +
+      '<div class="rv-top"><span class="rv-av" style="background:' + cores[i % cores.length] + '">' + av + '</span><div><div class="rv-name">' + esc(r.nome) + OK + '</div><div class="rv-meta">' + esc(r.quando || '') + ' no <b>Google</b></div></div></div>' +
+      '<span class="rv-stars" aria-label="' + r.nota + ' de 5 estrelas">' + STAR.repeat(r.nota) + '</span>' +
+      '<p class="rv-text">' + esc(r.texto) + '</p>' +
+      '<button class="rv-more" type="button">Ler mais</button>' +
+      (r.foto ? '<div class="rv-photo"><img src="' + esc(r.foto) + '" alt="Foto enviada pela cliente" loading="lazy"></div>' : '');
+    track.appendChild(card);
+    const more = card.querySelector('.rv-more'), txt = card.querySelector('.rv-text');
+    requestAnimationFrame(function(){ if (txt.scrollHeight <= txt.clientHeight + 2) more.hidden = true; });
+    more.addEventListener('click', function(){ card.classList.toggle('open'); more.textContent = card.classList.contains('open') ? 'Ler menos' : 'Ler mais'; });
+  });
+  const reais = AVALIACOES.filter(function(r){ return !r.exemplo; });
+  const base = reais.length ? reais : AVALIACOES;
+  const media = base.reduce(function(a, r){ return a + r.nota; }, 0) / base.length;
+  document.getElementById('rvAvg').textContent = media.toFixed(1).replace('.', ',');
+  document.getElementById('rvAvgStars').innerHTML = STAR.repeat(Math.round(media));
+  document.getElementById('rvCount').textContent = reais.length ? 'com base em ' + reais.length + ' avaliações no Google' : 'Avaliações de exemplo · troque pelas reais do Google';
+  document.getElementById('rvNote').textContent = reais.length ? 'Avaliações publicadas no perfil da Nooma Nails no Google.' : '';
+  const step = function(){ const c = track.querySelector('.rv-card'); return c ? c.getBoundingClientRect().width + 24 : 300; };
+  document.getElementById('rvNext').addEventListener('click', function(){ track.scrollBy({ left: step(), behavior:'smooth' }); });
+  document.getElementById('rvPrev').addEventListener('click', function(){ track.scrollBy({ left: -step(), behavior:'smooth' }); });
+})();
+
 /* ================= Movimento (Venetian) ================= */
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const hasGsap = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
-const scrollSec = document.getElementById('detalhes'), galSec = document.getElementById('galeria');
-function staticMode(){ scrollSec.classList.add('static'); galSec.classList.add('static'); if (window.__startCarousel) window.__startCarousel(); }
+function staticMode(){ if (window.__startCarousel) window.__startCarousel(); }
 
 if (!hasGsap || reduce) { staticMode(); }
 else {
@@ -691,24 +780,8 @@ else {
   /* Formulário */
   gsap.fromTo('.ff', { clipPath:'polygon(0 0, 0 0, 0 100%, 0 100%)', opacity:0, scale:1.1 }, { clipPath:'polygon(0 0, 100% 0, 100% 100%, 0 100%)', opacity:1, scale:1, duration:1, stagger:.15, ease:'power1.out', scrollTrigger:{ trigger:'#bookForm', start:'top 80%' } });
 
-  /* Seções fixadas: imagens / cards subindo + fundo crescendo + parallax do mouse */
-  function pinnedRise(sec, bg, items, inner){
-    gsap.fromTo(bg, { scale:1, opacity:.9 }, { scale:1.75, opacity:.45, ease:'none', scrollTrigger:{ trigger:sec, start:'top top', end:'3000px', scrub:true } });
-    const tl = gsap.timeline({ scrollTrigger:{ trigger:sec, start:'top top', end:'3000px', scrub:true, pin:true, pinSpacing:true } });
-    items.forEach(function(el, k){ tl.fromTo(el, { y: window.innerHeight }, { y: -el.offsetHeight - 60, ease:'none' }, k * .12); });
-    const onMove = function(e){
-      const mx = (e.clientX / window.innerWidth - .5) * 2, my = (e.clientY / window.innerHeight - .5) * 2;
-      items.forEach(function(el){ gsap.to(inner ? el.querySelector(inner) : el.firstElementChild, { x: -mx * 25, y: -my * 25, duration:.5, ease:'power2.out' }); });
-    };
-    window.addEventListener('mousemove', onMove);
-    return function(){ window.removeEventListener('mousemove', onMove); };
-  }
-  mm.add('(min-width: 768px)', function(){
-    const a = pinnedRise(scrollSec, '#bigBg1', gsap.utils.toArray('.mv'), 'img');
-    const b = pinnedRise(galSec, '#bigBg2', gsap.utils.toArray('.gp'), 'img');
-    return function(){ a(); b(); };
-  });
-  mm.add('(max-width: 767px)', function(){ scrollSec.classList.add('static'); galSec.classList.add('static'); return function(){ scrollSec.classList.remove('static'); galSec.classList.remove('static'); }; });
+  gsap.utils.toArray('.ig-item').forEach(function(a, k){ gsap.fromTo(a, { clipPath:'polygon(0 0, 0 0, 0 0, 0 0)' }, { clipPath:'polygon(0 0, 100% 0, 100% 100%, 0 100%)', duration:.9, delay:k * .12, ease:'power1.out', scrollTrigger:{ trigger:'.ig-grid', start:'top 78%', once:true } }); });
+  gsap.from('.rv-card', { y:40, opacity:0, duration:.6, stagger:.12, ease:'power2.out', scrollTrigger:{ trigger:'#rvTrack', start:'top 85%', once:true } });
 
   window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
 }
